@@ -1,0 +1,67 @@
+def display_menu():
+    print("\n--- To-Do List App ---")
+    print("1. Add Task")
+    print("2. View Tasks")
+    print("3. Update Task")
+    print("4. Delete Task")
+    print("5. Exit")
+
+def add_task(tasks):
+    task_id = len(tasks) + 1
+    task_desc = input("Enter task description: ")
+    tasks[task_id] = task_desc
+    print(f"Task added with ID: {task_id}")
+
+def view_tasks(tasks):
+    if not tasks:
+        print("No tasks available.")
+    else:
+        print("\nTasks:")
+        for task_id, task_desc in tasks.items():
+            print(f"{task_id}: {task_desc}")
+
+def update_task(tasks):
+    try:
+        task_id = int(input("Enter task ID to update: "))
+        if task_id in tasks:
+            new_desc = input("Enter new task description: ")
+            tasks[task_id] = new_desc
+            print("Task updated successfully.")
+        else:
+            print("Task ID not found.")
+    except ValueError:
+        print("Invalid input. Please enter a valid task ID.")
+
+def delete_task(tasks):
+    try:
+        task_id = int(input("Enter task ID to delete: "))
+        if task_id in tasks:
+            del tasks[task_id]
+            print("Task deleted successfully.")
+        else:
+            print("Task ID not found.")
+    except ValueError:
+        print("Invalid input. Please enter a valid task ID.")
+
+def main():
+    tasks = {}
+    while True:
+        display_menu()
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == '1':
+            add_task(tasks)
+        elif choice == '2':
+            view_tasks(tasks)
+        elif choice == '3':
+            update_task(tasks)
+        elif choice == '4':
+            delete_task(tasks)
+        elif choice == '5':
+            print("Exiting the To-Do List App. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+if __name__ == "__main__":
+    main()

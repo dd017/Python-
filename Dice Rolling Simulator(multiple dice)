@@ -1,0 +1,25 @@
+import random
+
+def roll_dice(num_dice):
+    """Simulate rolling a specified number of six-sided dice."""
+    return [random.randint(1, 6) for _ in range(num_dice)]
+
+def main():
+    print("Welcome to the Dice Rolling Simulator!")
+    
+    while True:
+        try:
+            num_dice = int(input("\nEnter the number of dice to roll (or '0' to exit): "))
+            if num_dice == 0:
+                print("Exiting the Dice Rolling Simulator. Goodbye!")
+                break
+            elif num_dice > 0:
+                results = roll_dice(num_dice)
+                print(f"You rolled: {', '.join(map(str, results))}")
+            else:
+                print("Please enter a positive number.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+if __name__ == "__main__":
+    main()

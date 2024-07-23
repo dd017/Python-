@@ -1,0 +1,22 @@
+import tkinter as tk
+import time
+
+def update_clock():
+    """Update the clock label with the current time."""
+    current_time = time.strftime('%H:%M:%S %p')
+    label.config(text=current_time)
+    label.after(1000, update_clock)
+
+# Create the main window
+root = tk.Tk()
+root.title("Digital Clock")
+
+# Create and configure the clock label
+label = tk.Label(root, font=('Arial', 48), bg='black', fg='white')
+label.pack(anchor='center')
+
+# Start the clock
+update_clock()
+
+# Run the application
+root.mainloop()

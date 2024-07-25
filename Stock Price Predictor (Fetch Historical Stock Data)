@@ -1,9 +1,0 @@
-def fetch_data(ticker, start_date, end_date):
-    data = yf.download(ticker, start=start_date, end=end_date)
-    return data
-
-# Example: Fetching data for Apple (AAPL)
-ticker = "AAPL"
-start_date = "2020-01-01"
-end_date = "2023-01-01"
-stock_data = fetch_data(ticker, start_date, end_date)

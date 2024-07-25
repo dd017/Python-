@@ -1,0 +1,7 @@
+def prepare_data(data):
+    data['Prediction'] = data['Close'].shift(-1)
+    features = data[['Close']].iloc[:-1]
+    labels = data['Prediction'].iloc[:-1]
+    return features, labels
+
+features, labels = prepare_data(stock_data)

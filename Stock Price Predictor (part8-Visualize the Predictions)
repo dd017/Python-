@@ -1,8 +1,0 @@
-plt.figure(figsize=(12, 6))
-plt.plot(y_test.index, y_test, label='Actual Prices', color='b')
-plt.plot(y_test.index, predictions, label='Predicted Prices', color='r')
-plt.title('Stock Price Prediction')
-plt.xlabel('Date')
-plt.ylabel('Price')
-plt.legend()
-plt.show()

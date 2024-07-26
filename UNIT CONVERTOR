@@ -1,0 +1,82 @@
+# Conversion functions
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def kilometers_to_miles(kilometers):
+    return kilometers * 0.621371
+
+def miles_to_kilometers(miles):
+    return miles / 0.621371
+
+def kilograms_to_pounds(kilograms):
+    return kilograms * 2.20462
+
+def pounds_to_kilograms(pounds):
+    return pounds / 2.20462
+
+def unit_converter():
+    print("Unit Converter")
+    print("Select conversion type:")
+    print("1. Temperature (Celsius <-> Fahrenheit)")
+    print("2. Length (Kilometers <-> Miles)")
+    print("3. Weight (Kilograms <-> Pounds)")
+    print("4. Exit")
+
+    while True:
+        # Take input from the user
+        choice = input("Enter choice (1/2/3/4): ")
+
+        if choice == '4':
+            print("Exiting the unit converter. Goodbye!")
+            break
+
+        if choice in ['1', '2', '3']:
+            try:
+                value = float(input("Enter the value to convert: "))
+
+                if choice == '1':
+                    print("1. Celsius to Fahrenheit")
+                    print("2. Fahrenheit to Celsius")
+                    temp_choice = input("Enter choice (1/2): ")
+
+                    if temp_choice == '1':
+                        print(f"{value}°C is {celsius_to_fahrenheit(value):.2f}°F")
+                    elif temp_choice == '2':
+                        print(f"{value}°F is {fahrenheit_to_celsius(value):.2f}°C")
+                    else:
+                        print("Invalid choice. Please select a valid conversion.")
+
+                elif choice == '2':
+                    print("1. Kilometers to Miles")
+                    print("2. Miles to Kilometers")
+                    length_choice = input("Enter choice (1/2): ")
+
+                    if length_choice == '1':
+                        print(f"{value} km is {kilometers_to_miles(value):.2f} miles")
+                    elif length_choice == '2':
+                        print(f"{value} miles is {miles_to_kilometers(value):.2f} km")
+                    else:
+                        print("Invalid choice. Please select a valid conversion.")
+
+                elif choice == '3':
+                    print("1. Kilograms to Pounds")
+                    print("2. Pounds to Kilograms")
+                    weight_choice = input("Enter choice (1/2): ")
+
+                    if weight_choice == '1':
+                        print(f"{value} kg is {kilograms_to_pounds(value):.2f} lbs")
+                    elif weight_choice == '2':
+                        print(f"{value} lbs is {pounds_to_kilograms(value):.2f} kg")
+                    else:
+                        print("Invalid choice. Please select a valid conversion.")
+
+            except ValueError:
+                print("Invalid input. Please enter a numeric value.")
+        else:
+            print("Invalid choice. Please select a valid conversion type.")
+
+# Run the unit converter
+unit_converter()
